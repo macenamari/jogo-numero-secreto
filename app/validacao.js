@@ -3,8 +3,20 @@ function validaChute(chute) {
     const numero = +chute;
 
     if(chuteInvalido(numero)) {
-        elementoChute.innerHTML += '<div>Valor inválido! Esse valor não é um número.</div><div>Continue tentando...</div>';
-        return
+        if (chute.toUpperCase() === "GAME OVER") {
+
+            document.body.innerHTML =
+                `
+                <h2>GAME OVER</h2>
+                <h3>Pressione o botão para jogar novamente</h3>
+                <button id="restart" class="btn-restart" >Jogar novamente</button>
+                `
+                document.body.style.backgroundColor = "black";
+        } else {
+           elementoChute.innerHTML += '<div>Valor inválido! Esse valor não é um número.</div><div>Continue tentando...</div>';
+        return 
+        }
+        
     }
 
     if(valorNaoPermitido(numero)) {
